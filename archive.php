@@ -6,4 +6,5 @@ Description: <?php echo category_description(); ?>(OR)<?php the_archive_descript
 <?php the_title(); ?>
 <?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ));?>
 <?php the_content(); ?>/<?php echo substr($post->post_content, 0, 150);  ?>
+<a href="<?php echo get_permalink( $post->ID ); ?>" class="btn btn-small">Register</a>
 <?php endwhile; wp_reset_postdata(); ?>
