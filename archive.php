@@ -5,5 +5,5 @@ Description: <?php echo category_description(); ?>(OR)<?php the_archive_descript
 <?php	while ( have_posts() ) : the_post(); ?>
 <?php the_title(); ?>
 <?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ));?>
-<?php the_content(); ?>
+<?php the_content(); ?>/<?php echo substr($post->post_content, 0, 150);  ?>
 <?php endwhile; wp_reset_postdata(); ?>
