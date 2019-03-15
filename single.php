@@ -25,3 +25,11 @@ Image: <img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post-
           <?php } ?>
      </ul>
 </div>
+
+<!--------------------- Tag ---------------------------->
+<?php $tags = get_tags(); ?>
+<div class="tags">
+      <?php foreach ( $tags as $tag ) { ?>
+      <a href="<?php echo get_tag_link( $tag->term_id ); ?> " rel="tag"><?php echo $tag->name; ?></a>
+      <?php } ?>
+</div>
