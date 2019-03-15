@@ -8,7 +8,7 @@ Image: <?php echo the_post_thumbnail( array(300, 300, true) ); ?>
 Image: <img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ));?>" /> 
 <?php endwhile;	?>
 
-<!--------------------- Category ---------------------------->
+<!------------------------------- Category ---------------------------->
 <?php       
       $args = array(
       'orderby'    => 'ID', 
@@ -26,7 +26,7 @@ Image: <img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post-
      </ul>
 </div>
 
-<!--------------------- Tag ---------------------------->
+<!--------------------------- Tag ---------------------------->
 <?php $tags = get_tags(); ?>
 <div class="tags">
       <?php foreach ( $tags as $tag ) { ?>
