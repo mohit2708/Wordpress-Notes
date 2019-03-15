@@ -7,7 +7,14 @@ Comment: <?php comments_popup_link('No Comments ', '1 Comment ', '% Comments ');
 Image: <?php echo the_post_thumbnail( array(300, 300, true) ); ?>
 Image: <img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post->ID ));?>" /> 
 <?php endwhile;	?>
-
+<!------------------------------- Search Bar ---------------------------->
+<form role="search" method="get" id="searchform" class="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+  <div>
+  <label class="screen-reader-text" for="s">Search for:</label>
+  <input type="text" value="" name="s" id="s" />
+  <input type="submit" id="searchsubmit" value="Search" />
+  </div>
+</form>
 <!------------------------------- Category ---------------------------->
 <?php       
       $args = array(
