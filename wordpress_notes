@@ -1,2 +1,17 @@
 <?php if (is_page(20) ){?> <?php } ?>
 <?php if( $post->ID == 172) { ?> <?php } ?>
+
+<!------------------- Rating Star ---------------------------->
+<div class="rating-star">
+<?php 
+$rat = get_post_meta($post->ID, 'rating', true); 
+for($i=1; $i<=5; $i++){
+if($rat>=$i){
+echo '<i class="fa fa-star yellow" aria-hidden="true"></i> ';
+}
+else{
+echo '<i class="fa fa-star " aria-hidden="true"></i> ';
+}
+}
+?>           
+</div>
