@@ -2,4 +2,5 @@
 $loop = new WP_Query( $args );
 while ( $loop->have_posts() ) : $loop->the_post();?>	
 Title: <?php echo $post->post_title ?>
+Parmalink: <a href="<?php echo get_permalink( $post->ID ); ?>">
 <?php endwhile; ?>
