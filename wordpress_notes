@@ -1,1 +1,2 @@
-dfgdg
+<?php if (is_page(20) ){?> <?php } ?>
+<?php if( $post->ID == 172) { ?> <?php } ?>
