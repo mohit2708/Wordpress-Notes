@@ -14,3 +14,4 @@ logo: <?php the_custom_logo(); ?>
      'walker'          => new bs4navwalker()
    ]);
    ?>
+<?php wp_head(); ?>
