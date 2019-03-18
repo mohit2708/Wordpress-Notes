@@ -25,3 +25,36 @@ Auther: <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) );
     ) );
   ?>
 </ul>
+=======
+Category:-
+  <?php       
+  $args = array(
+  'orderby'    => 'ID', 
+  'order'      => 'ASC',
+  'hide_empty' => false
+  );            
+  $tax_terms = get_terms('category', $args);
+  ?>
+  <div class="category-link">
+    <h4> <strong>Category</strong></h4>
+    <ul class="list-group">     
+    <?php foreach($tax_terms as $term_single) { ?>  
+    <li  class="list-group-item"><a href="<?php echo home_url();?>/category/<?php echo $term_single->slug; ?>"><?php echo $term_single->name; ?> <span>(<?php echo $term_single->count; ?>)</span></a></li>         
+    <?php } ?>
+    </ul>
+  </div>
+
+Tag:-
+  <?php $tags = get_tags(); ?>
+  <div class="tags">
+  <?php foreach ( $tags as $tag ) { ?>
+  <a href="<?php echo get_tag_link( $tag->term_id ); ?> " rel="tag"><?php echo $tag->name; ?></a>
+  <?php } ?>
+
+Search Bar:-
+  <form role="search" method="get" id="searchform" class="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+  <div>
+  <input type="text" value="" name="s" id="s" />
+  <input type="submit" id="searchsubmit" value="Search" />
+  </div>
+  </form>
