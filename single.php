@@ -27,7 +27,7 @@ comments_template();
   <input type="submit" id="searchsubmit" value="Search" />
   </div>
 </form>
-<!------------------------------- Category ---------------------------->
+<!---------------- --------------- Category ---------------------------->
 <?php       
       $args = array(
       'orderby'    => 'ID', 
@@ -45,7 +45,7 @@ comments_template();
      </ul>
 </div>
 
-<!--------------------------- Tag ---------------------------->
+<!-------------- ------------- Tag ---------------------------->
 <?php $tags = get_tags(); ?>
 <div class="tags">
       <?php foreach ( $tags as $tag ) { ?>
