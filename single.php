@@ -13,6 +13,12 @@ Image: <img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id( $post-
 Next Link: <?php next_posts_link(); ?>
 Previous Link: <?php previous_posts_link(); ?>
 <?php endwhile;	?>
+<!------------------------------- Comment Section ---------------------------->
+<?php 
+if ( comments_open() || get_comments_number() ) {
+comments_template();
+}
+?>
 <!------------------------------- Search Bar ---------------------------->
 <form role="search" method="get" id="searchform" class="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
   <div>
