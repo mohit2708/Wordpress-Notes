@@ -1,5 +1,5 @@
 <?php
-<!-- Category Description in html formet -->
+ //Category Description in html formet 
 foreach ( array( 'pre_term_description' ) as $filter ) { 
     remove_filter( $filter, 'wp_filter_kses' ); 
 } 
