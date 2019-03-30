@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 
 <div class="container">
+	<h3>Seacrch Result For: <?php echo get_search_query(); ?></h3>
 <div class="row">
 <div class="col-sm-8">
 		<?php if ( have_posts() ) : ?>
@@ -8,7 +9,7 @@
 <header class="page-header">
 	<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'twentysixteen' ), '<span>' . esc_html( get_search_query() ) . '</span>' ); ?></h1>
 </header>
-
+<?php if ( have_posts() ) : ?>
 			<?php
 			// Start the loop.
 			while ( have_posts() ) : the_post();
@@ -17,10 +18,14 @@
 				the_content();
 
 				// End the loop.
-			endwhile;
+			endwhile; ?>
+	
+<?php else : ?>
+						<h1> No Result Found</h1>
 
+            <?php endif; ?>
 			// Previous/next page navigation.
-			the_posts_pagination(
+	<?php		the_posts_pagination(
 				array(
 					'prev_text'          => __( 'Previous page', 'twentysixteen' ),
 					'next_text'          => __( 'Next page', 'twentysixteen' ),
