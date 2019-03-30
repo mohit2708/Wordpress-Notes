@@ -14,6 +14,9 @@
             window.location.href = '<?php echo site_url('/'); ?>';
          }, 3000);
       </script>
+ <script language="javascript" type="text/javascript">    
+     window.location="<?php echo site_url('/'); ?>";
+ </script>
 <?php //get_sidebar( 'content-bottom' ); ?>
 <?php //get_sidebar(); ?>
 <?php get_footer(); ?>
