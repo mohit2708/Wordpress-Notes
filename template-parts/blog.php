@@ -8,7 +8,7 @@ Parmalink: <a href="<?php echo get_permalink( $post->ID ); ?>">
 Description: <?php echo substr($post->post_content, 0, 140);  ?>
 Date: <?php echo get_the_time( 'F j, Y', $post->ID ) ?>
 Commenet: <?php comments_popup_link('No Comments ', '1 Comment ', '% Comments '); ?>
-Comment: <?php echo $post->comment_count; ?>
+Comment: <?php echo $post->comment_count; ?> or <?php echo get_comments_number( $post_id ); ?>
 view: <?php echo getPostViews(get_the_ID()); ?>
 Days Ago: <?php echo human_time_diff(get_the_time('U'), current_time('timestamp')) . ' ago'; ?>
 Auther: <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php echo get_the_author(); ?></a><br>
