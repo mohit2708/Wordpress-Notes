@@ -58,3 +58,41 @@ Search Bar:-
   <input type="submit" id="searchsubmit" value="Search" />
   </div>
   </form>
+  =============
+    Archive:-
+    <?php wp_get_archives('type=alpha'); ?> //To display the *ALL* posts alphabetically
+    <?php wp_get_archives( array( 'type' => 'yearly', 'limit' => 16) ); ?>
+    <?php wp_get_archives( array( 'type' => 'monthly', 'limit' => 12 ) ); ?>   
+    <?php wp_get_archives( array( 'type' => 'daily', 'limit' => 16) ); ?>
+    
+      <?php
+global $wpdb;
+$limit = 0;
+$year_prev = null;
+$months = $wpdb->get_results("SELECT DISTINCT MONTH( post_date ) AS month ,  YEAR( post_date ) AS year, COUNT( id ) as post_count FROM $wpdb->posts WHERE post_status = 'publish' and post_date <= now( ) and post_type = 'post' GROUP BY month , year ORDER BY post_date DESC");
+foreach($months as $month) :
+    $year_current = $month->year;
+    if ($year_current != $year_prev){
+        if ($year_prev != null){?>
+         
+        <?php } ?>
+     
+    <li class="archive-year"><a href="<?php bloginfo('url') ?>/<?php echo $month->year; ?>/"><?php echo $month->year; ?></a></li>
+     
+    <?php } ?>
+    <li><a href="<?php bloginfo('url') ?>/<?php echo $month->year; ?>/<?php echo date("m", mktime(0, 0, 0, $month->month, 1, $month->year)) ?>"><span class="archive-month"><?php echo date_i18n("F", mktime(0, 0, 0, $month->month, 1, $month->year)) ?></span></a><?php echo $month->post_count; ?></li>
+<?php $year_prev = $year_current;
+ 
+if(++$limit >= 18) { break; }
+ 
+endforeach; ?>
+<style type="text/css">
+        .widget-archive{padding: 0 0 40px 0; float: left; width: 235px;}
+.widget-archive ul {margin: 0;}
+.widget-archive li {margin: 0; padding: 0;}
+.widget-archive li a{ border-left: 1px solid #d6d7d7; padding: 5px 0 3px 10px; margin: 0 0 0 55px; display: block;}
+li.archive-year{float: left; font-family: Helvetica, Arial, san-serif; padding: 5px 0 3px 10px; color:#ed1a1c;}
+li.archive-year a{color:#ed1a1c; margin: 0; border: 0px; padding: 0;}
+      </style>
+    
+    
