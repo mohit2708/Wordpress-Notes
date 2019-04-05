@@ -1,4 +1,5 @@
 <?php
+require_once('wp-bootstrap-navwalker.php');
  //Category Description in html formet 
 foreach ( array( 'pre_term_description' ) as $filter ) { 
     remove_filter( $filter, 'wp_filter_kses' ); 
@@ -50,20 +51,17 @@ function mohit_widgets_init() {
 	) );
 }
 add_action( 'widgets_init', 'mohit_widgets_init' );
-
-
-
-/* Testimonials  Post Type */
-function testimonials_post_register() {
+/* Slider  Post Type */
+function slider_post_register() {
     $labels = array(
-        'name' => _x('Testimonials', 'post type general name'),
-        'singular_name' => _x('Testimonials Item', 'post type singular name'),
-        'add_new' => _x('Add New', 'Testimonials item'),
-        'add_new_item' => __('Add New Testimonials'),
-        'edit_item' => __('Edit Testimonials Item'),
-        'new_item' => __('New Testimonials Item'),
-        'view_item' => __('View Testimonials Item'),
-        'search_items' => __('Search Testimonials Items'),
+        'name' => _x('Slider', 'post type general name'),
+        'singular_name' => _x('Slider Item', 'post type singular name'),
+        'add_new' => _x('Add New', 'Slider item'),
+        'add_new_item' => __('Add New Slider'),
+        'edit_item' => __('Edit Slider'),
+        'new_item' => __('New Slider Item'),
+        'view_item' => __('View Slider Item'),
+        'search_items' => __('Search Slider Items'),
         'not_found' =>  __('Nothing found'),
         'not_found_in_trash' => __('Nothing found in Trash'),
         'parent_item_colon' => ''
@@ -71,19 +69,19 @@ function testimonials_post_register() {
     $args = array(
         'labels' => $labels,
         'public' => true,
-        'menu_icon'   => 'dashicons-format-gallery',
+        'menu_icon'   => 'dashicons-images-alt',
         'publicly_queryable' => true,
         'show_ui' => true,
         'query_var' => true,
         'rewrite' => true,
         'capability_type' => 'post',
         'hierarchical' => false,
-        'menu_position' => 21,
+        'menu_position' => 20,
         'supports' => array('title','editor','thumbnail')
     ); 
-    register_post_type( 'testimonials' , $args );
+    register_post_type( 'slider' , $args );
 }
-add_action('init', 'testimonials_post_register');
+add_action('init', 'slider_post_register');
 /* Slider Post Type Taxonomies*/
 // function create_slider_taxonomies() {
 //     $labels = array(
@@ -111,9 +109,73 @@ add_action('init', 'testimonials_post_register');
 // }
 // add_action( 'init', 'create_slider_taxonomies', 0 );
 
+/* Testimonials  Post Type */
+function testimonials_post_register() {
+    $labels = array(
+        'name' => _x('Testimonials', 'post type general name'),
+        'singular_name' => _x('Testimonials Item', 'post type singular name'),
+        'add_new' => _x('Add New', 'Testimonials item'),
+        'add_new_item' => __('Add New Testimonials'),
+        'edit_item' => __('Edit Testimonials Item'),
+        'new_item' => __('New Testimonials Item'),
+        'view_item' => __('View Testimonials Item'),
+        'search_items' => __('Search Testimonials Items'),
+        'not_found' =>  __('Nothing found'),
+        'not_found_in_trash' => __('Nothing found in Trash'),
+        'parent_item_colon' => ''
+    );
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'menu_icon'   => 'dashicons-editor-quote',
+        'publicly_queryable' => true,
+        'show_ui' => true,
+        'query_var' => true,
+        'rewrite' => true,
+        'capability_type' => 'post',
+        'hierarchical' => false,
+        'menu_position' => 21,
+        'supports' => array('title','editor','thumbnail')
+    ); 
+    register_post_type( 'testimonials' , $args );
+}
+add_action('init', 'testimonials_post_register');
+
+/* Faq  Post Type */
+function faq_post_register() {
+    $labels = array(
+        'name' => _x('Faq', 'post type general name'),
+        'singular_name' => _x('Faq Item', 'post type singular name'),
+        'add_new' => _x('Add New', 'Faq item'),
+        'add_new_item' => __('Add New Faq'),
+        'edit_item' => __('Edit Faq Item'),
+        'new_item' => __('New Faq Item'),
+        'view_item' => __('View Faq Item'),
+        'search_items' => __('Search Faq Items'),
+        'not_found' =>  __('Nothing found'),
+        'not_found_in_trash' => __('Nothing found in Trash'),
+        'parent_item_colon' => ''
+    );
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'menu_icon'   => 'dashicons-clipboard',
+        'publicly_queryable' => true,
+        'show_ui' => true,
+        'query_var' => true,
+        'rewrite' => true,
+        'capability_type' => 'post',
+        'hierarchical' => false,
+        'menu_position' => 23,
+        'supports' => array('title','editor','thumbnail')
+    ); 
+    register_post_type( 'faq' , $args );
+}
+add_action('init', 'faq_post_register');
 
 
-require_once('wp-bootstrap-navwalker.php');
+
+
 
 function load_theme_files() {   
     wp_enqueue_style('bootstrap', esc_url( get_stylesheet_directory_uri() ).'/css/bootstrap.min.css');
