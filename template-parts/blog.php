@@ -1,3 +1,6 @@
+<?php
+/* Template Name: Blog */
+get_header(); ?>
 <?php $args = array('post_type' => 'post','posts_per_page'=>-3,'post_status' => 'publish','paged' => get_query_var('paged') ? get_query_var('paged') : 1);
 $loop = new WP_Query( $args );
 while ( $loop->have_posts() ) : $loop->the_post();?>	
@@ -94,5 +97,7 @@ endforeach; ?>
 li.archive-year{float: left; font-family: Helvetica, Arial, san-serif; padding: 5px 0 3px 10px; color:#ed1a1c;}
 li.archive-year a{color:#ed1a1c; margin: 0; border: 0px; padding: 0;}
       </style>
+    
+  <?php get_footer(); ?>
     
     
