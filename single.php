@@ -1,3 +1,4 @@
+<?php get_header(); ?>
 <?php	while ( have_posts() ) : the_post(); ?>
 Title: <h1><?php the_title(); ?></h1>
 Content: <p><?php the_content(); ?></p>
@@ -52,3 +53,4 @@ comments_template();
       <a href="<?php echo get_tag_link( $tag->term_id ); ?> " rel="tag"><?php echo $tag->name; ?></a>
       <?php } ?>
 </div>
+<?php get_footer(); ?>
