@@ -1,4 +1,3 @@
-
 <?php get_header(); ?>
 <div class="container">
 <h1>Oops! That page can&rsquo;t be found.</h1>
