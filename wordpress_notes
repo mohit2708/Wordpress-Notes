@@ -17,3 +17,6 @@ echo '<i class="fa fa-star " aria-hidden="true"></i> ';
 </div>
 <!------------------- After 3 Post Clearfix ---------------------------->
  <?php $i++; if($i==3){ ?> <div class="clearfix"></div> <?php $i=0; } ?>
+ 
+ <!------------------- Default editior ---------------------------->
+ add_filter('use_block_editor_for_post', '__return_false');
