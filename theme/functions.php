@@ -1,5 +1,5 @@
 <?php
-require_once('wp-bootstrap-navwalker.php');
+require_once('bs4navwalker.php');
  //Category Description in html formet 
 foreach ( array( 'pre_term_description' ) as $filter ) { 
     remove_filter( $filter, 'wp_filter_kses' ); 
