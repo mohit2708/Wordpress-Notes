@@ -7,32 +7,6 @@
    Author: Mr. Mohit Saxena
    */
 
-function mm_create_table() {
-    global $wpdb;
-    $table_name = $wpdb->prefix . "mmjobs";
-    $charset_collate = $wpdb->get_charset_collate();
-    $sql = "CREATE TABLE $table_name (
-            id int(9) NOT NULL AUTO_INCREMENT,
-            first_name varchar(250) CHARACTER SET utf8 NOT NULL,
-            last_name varchar(250) CHARACTER SET utf8 NOT NULL,
-            contact int(10),
-            email varchar(250) CHARACTER SET utf8 NOT NULL,
-            job_tittle varchar(250),
-            job_description varchar(250),
-            company_name varchar(250),
-            company_url varchar(250),
-            created_at TIMESTAMP,
-            PRIMARY KEY (`id`)
-          ) $charset_collate; ";
-
-    require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
-    dbDelta($sql);
-}
-
-// run the install scripts upon plugin activation
-register_activation_hook(__FILE__, 'mm_create_table');
-
-
 function jobs_manager_admin_menu(){
 
 add_menu_page('All Job Manager', 'Job Portal', 'manage_options','all-job-manager','acutions_recent_bids_list','dashicons-chart-area', 56);   
